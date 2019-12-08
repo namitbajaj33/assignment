@@ -21,8 +21,7 @@ class NetworkModule {
     }
 
     @Provides
-    @Named("query_interceptor")
-    fun providesInterceptor(sharedPreferences: SharedPreferences): Interceptor {
+    fun providesInterceptor(): Interceptor {
         return Interceptor { chain ->
             val original = chain.request()
             val request = chain.request().newBuilder()
@@ -36,9 +35,8 @@ class NetworkModule {
         }
     }
 
-
     @Provides
-    fun providesOkHttpClient(@Named("query_interceptor") queryInterceptor: Interceptor): OkHttpClient {
+    fun providesOkHttpClient(queryInterceptor: Interceptor): OkHttpClient {
         val builder = OkHttpClient.Builder()
         builder.readTimeout(1, TimeUnit.MINUTES)
         builder.writeTimeout(1, TimeUnit.MINUTES)

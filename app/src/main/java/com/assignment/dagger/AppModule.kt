@@ -27,5 +27,4 @@ class AppModule(var mApplication: Application) {
     fun providesSharedPreferences(app: Application): SharedPreferences {
         return PreferenceManager.getDefaultSharedPreferences((app))
     }
-
 }

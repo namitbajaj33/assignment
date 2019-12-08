@@ -1,6 +1,7 @@
 package com.assignment.dagger
 
 import com.assignment.retrofit.AssignmentService
+import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
@@ -19,15 +20,14 @@ class RetrofitModule {
 
     @Provides
     fun providesRetrofitEndPoints(
-        okHttpClient: OkHttpClient, rxAdapter: RxJava2CallAdapterFactory
+        okHttpClient: OkHttpClient,
+        rxAdapter: RxJava2CallAdapterFactory,
+        gson: Gson
     ): AssignmentService {
 
-        val gson = GsonBuilder()
-            .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
-            .create()
         return Retrofit.Builder()
             .client(okHttpClient)
-            .baseUrl("https:")
+            .baseUrl("https://api.myjson.com/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .addCallAdapterFactory(rxAdapter)
             .build()
