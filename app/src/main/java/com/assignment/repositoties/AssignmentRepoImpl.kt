@@ -2,11 +2,12 @@ package com.assignment.repositoties
 
 import android.app.Application
 import android.content.SharedPreferences
+import com.assignment.AssignmentApp
 import com.assignment.retrofit.AssignmentService
 import com.google.gson.Gson
 import javax.inject.Inject
 
-open class AssignmentRepoImpl {
+open class AssignmentRepoImpl() {
 
     @Inject
     lateinit var assignmentService: AssignmentService
@@ -20,4 +21,7 @@ open class AssignmentRepoImpl {
     @Inject
     lateinit var mApp: Application
 
+    init {
+        AssignmentApp.mAppComponent.inject(this)
+    }
 }

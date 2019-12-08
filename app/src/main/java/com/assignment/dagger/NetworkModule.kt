@@ -1,6 +1,5 @@
 package com.assignment.dagger
 
-import android.content.SharedPreferences
 import com.assignment.BuildConfig
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -10,7 +9,6 @@ import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import java.util.concurrent.TimeUnit
-import javax.inject.Named
 
 @Module
 class NetworkModule {

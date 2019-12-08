@@ -1,7 +1,7 @@
 package com.assignment.dagger
 
+import com.assignment.repositoties.AssignmentRepoImpl
 import com.assignment.ui.celebritycars.CelebrityCarsViewModel
-import com.assignment.ui.celebritycars.CelebrityCarsRepoImpl
 import dagger.Component
 import javax.inject.Singleton
 
@@ -17,7 +17,7 @@ import javax.inject.Singleton
 @Singleton
 interface AppComponent {
 
-    fun inject(celebrityCarsRepoImpl: CelebrityCarsRepoImpl)
+    fun inject(assignmentRepoImpl: AssignmentRepoImpl)
 
     fun inject(celebrityCarsViewModel: CelebrityCarsViewModel)
 
