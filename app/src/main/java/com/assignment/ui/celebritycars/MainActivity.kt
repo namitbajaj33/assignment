@@ -28,7 +28,9 @@ class MainActivity : AppCompatActivity() {
         celebrityCarViewModel = ViewModelProviders.of(this).get(CelebrityCarsViewModel::class.java)
         observeCelebrityCarList()
 
-        getCelebrityCars()
+        if (savedInstanceState == null) {
+            getCelebrityCars()
+        }
     }
 
     private fun observeCelebrityCarList() {
