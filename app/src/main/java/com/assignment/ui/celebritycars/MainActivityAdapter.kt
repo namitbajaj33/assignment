@@ -3,7 +3,6 @@ package com.assignment.ui.celebritycars
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.assignment.R
 import com.assignment.model.CelebrityCarContainer
@@ -15,6 +14,7 @@ class MainActivityAdapter(val data: ArrayList<CelebrityCarContainer>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+
         if (viewType == CelebrityCarContainer.HEADER) {
             val v = LayoutInflater.from(parent.context).inflate(R.layout.item_header, parent, false)
             return HeaderHolder(v)
@@ -22,6 +22,8 @@ class MainActivityAdapter(val data: ArrayList<CelebrityCarContainer>) :
             val v = LayoutInflater.from(parent.context).inflate(R.layout.item_car, parent, false)
             return CarHolder(v)
         } else {
+            // If required we'll use different UI for celebrities here this else is just an example
+
             val v = LayoutInflater.from(parent.context).inflate(R.layout.item_car, parent, false)
             return CarHolder(v)
         }
@@ -40,7 +42,7 @@ class MainActivityAdapter(val data: ArrayList<CelebrityCarContainer>) :
     }
 
     override fun getItemViewType(position: Int): Int {
-        return data.get(position).viewType
+        return data[position].viewType
     }
 
     class HeaderHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

@@ -5,8 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.assignment.R
 import com.assignment.model.CelebrityCar
 import com.assignment.model.CelebrityCarContainer
-import com.assignment.repositoties.AssignmentRepo
-import com.assignment.repositoties.AssignmentRepoImpl
+import com.assignment.repository.AssignmentRepoImpl
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -14,7 +13,7 @@ import retrofit2.Response
 import java.net.UnknownHostException
 
 
-class CelebrityCarsRepoImpl : AssignmentRepoImpl(), AssignmentRepo {
+class CelebrityCarsRepoImpl : AssignmentRepoImpl() {
 
     var responseCall: Call<Any>? = null
 
@@ -131,4 +130,5 @@ class CelebrityCarsRepoImpl : AssignmentRepoImpl(), AssignmentRepo {
     override fun onCancel() {
         responseCall?.cancel()
     }
+
 }

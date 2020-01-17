@@ -1,6 +1,6 @@
 package com.assignment.dagger
 
-import com.assignment.repositoties.AssignmentRepoImpl
+import com.assignment.repository.AssignmentRepoImpl
 import com.assignment.ui.celebritycars.CelebrityCarsViewModel
 import dagger.Component
 import javax.inject.Singleton
